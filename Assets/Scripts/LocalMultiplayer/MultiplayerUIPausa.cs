@@ -17,21 +17,10 @@ public class MultiplayerUIPausa : MonoBehaviour
         instance = this;
     }
 
-    void Update()
+    public void Pausa()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (Time.timeScale == 1)
-            {
-                Time.timeScale = 0;
-                menuPausa.enabled = true;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                menuPausa.enabled = false;
-            }
-        }
+        Time.timeScale = 0;
+        menuPausa.enabled = true;
     }
 
     public void Continuar()

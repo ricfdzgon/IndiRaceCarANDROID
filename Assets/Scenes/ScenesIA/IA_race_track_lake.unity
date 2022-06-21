@@ -938,6 +938,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 436181426, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4777707153708846918}
+    - target: {fileID: 436181426, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pausa
+      objectReference: {fileID: 0}
+    - target: {fileID: 436181426, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MultiplayerUIPausa, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2792218741957914664, guid: 133308cdb8794744caaef026bde9e1f0, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -18722,3 +18734,14 @@ PrefabInstance:
       objectReference: {fileID: 21388931}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac1ec163bbae6f94f8e1c64a1063b01d, type: 3}
+--- !u!114 &4777707153708846918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4777707153708846919, guid: ac1ec163bbae6f94f8e1c64a1063b01d, type: 3}
+  m_PrefabInstance: {fileID: 4777707153708846917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a48dd9a361170dc4388499460c06597c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
