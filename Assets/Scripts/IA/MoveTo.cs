@@ -32,7 +32,7 @@ public class MoveTo : MonoBehaviour
             Debug.Log(currentWaypoint);
             Debug.Log(maxWaypoints);
         }
-        if (other.gameObject.tag == "Finish")
+        if (other.gameObject.tag == "FinishMulti")
         {
             Finalizar();
         }

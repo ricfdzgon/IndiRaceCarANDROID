@@ -9,6 +9,7 @@ TagManager:
   - NearFinish
   - SecondLapTrigger
   - Waypoint
+  - FinishMulti
   layers:
   - Default
   - TransparentFX

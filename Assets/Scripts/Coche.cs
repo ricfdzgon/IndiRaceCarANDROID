@@ -122,6 +122,11 @@ public class Coche : MonoBehaviour
             onTime = false;
             Invoke("Finalizar", 3f);
         }
+        if (other.gameObject.tag == "FinishMulti")
+        {
+            onTime = false;
+            FinalizarMulti();
+        }
         if (other.gameObject.tag == "NearFinish")
         {
             SceneManagement.instance.CargarEfectosFinales();
@@ -138,6 +143,10 @@ public class Coche : MonoBehaviour
         UIPausa.instance.MenuFinal(tiempotext);
     }
 
+    private void FinalizarMulti()
+    {
+        MultiplayerUIPausa.instance.FinalizarPantalla("Coche Amarillo");
+    }
     private void ReproducirSonido(string sonido)
     {
         if (sonido == "freno")
