@@ -22,6 +22,7 @@ public class Coche : MonoBehaviour
     private float moveDirection;
     private bool brake;
     private bool rearBrake;
+    private bool acelerando;
     private bool onTime;
     private float steerDirection;
     private float marchaEngranada;
@@ -52,69 +53,7 @@ public class Coche : MonoBehaviour
         rot.z = Mathf.Clamp(rot.z, -1.0f, 1.0f);
         transform.rotation = rot;
 
-        //Gestion de las marchas
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            marchaEngranada--;
-            UICoche.instance.CambiarTextoMarcha(marchaEngranada);
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            marchaEngranada++;
-            UICoche.instance.CambiarTextoMarcha(marchaEngranada);
-        }
-
-        marchaEngranada = Mathf.Clamp(marchaEngranada, -1, 1);
-
-
-        //Gestion del acelerador
-        if (Input.GetKey(KeyCode.W))
-        {
-            ReproducirSonido("aceleracion");
-            switch (marchaEngranada)
-            {
-                case 1:
-                    moveDirection = 1;
-                    break;
-                case 0:
-                    moveDirection = 0;
-                    break;
-                case -1:
-                    moveDirection = -1;
-                    break;
-            }
-        }
-        else
-        {
-            moveDirection = 0;
-        }
-
-        //Gestion del freno
-        if (Input.GetKey(KeyCode.S))
-        {
-            brake = true;
-            rearBrake = false;
-        }
-        else
-        {
-            brake = false;
-            rearBrake = false;
-        }
-
-        //Gestion del freno de mano
-        if (Input.GetKey(KeyCode.Space))
-        {
-            brake = true;
-            rearBrake = true;
-        }
-
-        //  moveDirection = Input.GetAxis("Vertical");
-
-        //Gestion de la direccion
-        steerDirection = Input.GetAxis("Horizontal");
         UICoche.instance.CambiarTextoVelocidad(rb.velocity.magnitude);
-
 
         //Gestion del tiempo
         if (onTime)
@@ -218,5 +157,76 @@ public class Coche : MonoBehaviour
                 audioSource.Play();
             }
         }
+    }
+
+    public void Acelerar()
+    {
+        Debug.Log("Acelerando");
+        ReproducirSonido("aceleracion");
+        switch (marchaEngranada)
+        {
+            case 1:
+                moveDirection = 1;
+                break;
+            case 0:
+                moveDirection = 0;
+                break;
+            case -1:
+                moveDirection = -1;
+                break;
+        }
+    }
+
+    public void DejarAcelerar()
+    {
+        Debug.Log("Dejando de acelerar");
+        moveDirection = 0;
+    }
+
+    public void Frenar()
+    {
+        brake = true;
+        rearBrake = false;
+    }
+
+    public void DejarDeFrenar()
+    {
+        brake = false;
+        rearBrake = false;
+    }
+
+    public void GirarIzquiera()
+    {
+        steerDirection = -1;
+    }
+
+    public void GirarDerecha()
+    {
+        steerDirection = 1;
+    }
+
+    public void DejardeGirar()
+    {
+        steerDirection = 0;
+    }
+
+    public void FrenoDeMano()
+    {
+        brake = true;
+        rearBrake = true;
+    }
+
+    public void SubirMarcha()
+    {
+        marchaEngranada++;
+        UICoche.instance.CambiarTextoMarcha(marchaEngranada);
+        marchaEngranada = Mathf.Clamp(marchaEngranada, -1, 1);
+    }
+
+    public void BajarMarcha()
+    {
+        marchaEngranada--;
+        UICoche.instance.CambiarTextoMarcha(marchaEngranada);
+        marchaEngranada = Mathf.Clamp(marchaEngranada, -1, 1);
     }
 }
