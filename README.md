@@ -1,2 +1,2 @@
-# IndiRaceCarANDROID
-IndiRaceCar port para Android
+# IndiRaceCar
+Videojuego para GameJam de clase, sobre carreras de coches.
